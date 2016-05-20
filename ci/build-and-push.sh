@@ -6,7 +6,7 @@ set -e
 
 # Login to ECR without printing sensitive info to the console in jenkins
 set +x
-eval $(docker run --rm "$@" anigeo/awscli ecr get-login --region us-east-1)
+eval $(docker run --rm "$@" anigeo/awscli ecr get-login --region $REGION)
 set -x
 
 [[ ! -f Dockerfile ]] && cd ..
